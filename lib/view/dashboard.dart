@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/counter1.dart';
-import 'package:flutter_application_4/counter1.dart';
-import 'package:flutter_application_4/counter2.dart';
+
+import 'package:flutter_application_4/view/counter1.dart';
+import 'package:flutter_application_4/view/counter2.dart';
 
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}) : super(key: key);
+   Dashboard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

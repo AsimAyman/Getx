@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/dashboard.dart';
-import 'package:flutter_application_4/my_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_application_4/view/dashboard.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../controller/controller.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
+  Get.put(Controller());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,8 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChangeNotifierProvider(
-          create: (_) => MyProvider(), child: MyHomePage()),
+      home: MyHomePage(),
     );
   }
 }
@@ -31,14 +33,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Controller _controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(child: Dashboard()),
+      body: Center(
+        child: Dashboard(),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Provider.of<MyProvider>(context,listen: false).increase();
+          _controller.increment();
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
