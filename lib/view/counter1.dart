@@ -11,7 +11,7 @@ import '../controller/controller.dart';
 
 class Counter2 extends StatelessWidget {
   Counter2({Key? key}) : super(key: key);
-  Controller _controller = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -20,9 +20,8 @@ class Counter2 extends StatelessWidget {
         width: 150,
         height: 150,
         child: Center(
-          child: GetBuilder<Controller>(
-            init: _controller,
-            builder: (_)=> Text(
+          child: GetX<Controller>(
+            builder: (_controller)=> Text(
                _controller.counter.toString(),
               style: TextStyle(fontSize: 40),
             ),

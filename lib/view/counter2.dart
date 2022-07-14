@@ -20,9 +20,9 @@ class Counter1 extends StatelessWidget {
       child: Container(
         width: 150,
         height: 150,
-        child: GetBuilder(
-          init: _controller,
-          builder: (_)=>
+        child: Obx(
+          ()=>
+         
            Center(
              child: Text(
               _controller.counter.toString(),
