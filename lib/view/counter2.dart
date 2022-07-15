@@ -1,34 +1,17 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter_application_4/controller/controller.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-import 'package:provider/provider.dart';
-
-class Counter1 extends StatelessWidget {
-  Counter1({Key? key}) : super(key: key);
-  Controller _controller = Get.find();
+class Counter2 extends StatelessWidget {
+  const Counter2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return const Card(
       elevation: 6,
-      child: Container(
+      child: SizedBox(
         width: 150,
         height: 150,
-        child: Obx(
-          ()=>
-         
-           Center(
-             child: Text(
-              _controller.counter.toString(),
-              style: const TextStyle(fontSize: 40),
-          ),
-           ),
+        child: Center(
+          child: Text("0", style: TextStyle(fontSize: 40)),
         ),
       ),
     );
